@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <title>குழந்தை பதிவு</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>🧒 புதிய குழந்தை பதிவு</h1>
+        <h3>New Child Registration</h3>
+
+        <form action="/add_child" method="POST">
+            <label>குழந்தையின் பெயர் (Child Name):</label><br>
+            <input type="text" name="name" required><br><br>
+
+            <label>பிறந்த தேதி (Date of Birth):</label><br>
+            <input type="date" name="dob" required><br><br>
+
+            <label>பாலினம் (Gender):</label><br>
+            <select name="gender" required>
+                <option value="Male">ஆண் (Male)</option>
+                <option value="Female">பெண் (Female)</option>
+            </select><br><br>
+
+            <label>பெற்றோர் பெயர் (Parent Name):</label><br>
+            <input type="text" name="parent_name" required><br><br>
+
+            <label>தொலைபேசி எண் (Phone Number):</label><br>
+            <input type="text" name="phone" required><br><br>
+
+            <label>முகவரி (Address):</label><br>
+            <textarea name="address" rows="3" required></textarea><br><br>
+
+            <label>வருமான நிலை (Income Level):</label><br>
+            <select name="income_level" required>
+                <option value="BPL">BPL (வறுமை கோட்டுக்கு கீழ்)</option>
+                <option value="APL">APL (வறுமை கோட்டுக்கு மேல்)</option>
+            </select><br><br>
+
+            <label>அங்கன்வாடி மைய பெயர் (Center Name):</label><br>
+            <input type="text" name="center_name" required><br><br>
+
+            <button type="submit">சேமிக்க (Save)</button>
+        </form>
+
+        <br>
+        <a href="/dashboard">⬅ முகப்புப் பக்கம் (Back to Dashboard)</a>
+    </div>
+</body>
+</html>

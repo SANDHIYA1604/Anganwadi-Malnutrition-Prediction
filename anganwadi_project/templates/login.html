@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <title>அங்கன்வாடி மேலாண்மை - உள்நுழைவு</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>🏫 அங்கன்வாடி மேலாண்மை அமைப்பு</h1>
+        <h3>Anganwadi Management System</h3>
+        
+        <form action="/login" method="POST">
+            <label>பயனர் பெயர் (Username):</label><br>
+            <input type="text" name="username" required><br><br>
+            
+            <label>கடவுச்சொல் (Password):</label><br>
+            <input type="password" name="password" required><br><br>
+            
+            <button type="submit">உள்நுழைய (Login)</button>
+        </form>
+    </div>
+</body>
+</html>

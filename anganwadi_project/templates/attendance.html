@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <title>தினசரி வருகை</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>📋 இன்றைய வருகை</h1>
+        <h3>Today's Attendance — {{ today }}</h3>
+
+        <form action="/mark_attendance" method="POST">
+            <table border="1" cellpadding="10" style="margin: auto;">
+                <tr>
+                    <th>குழந்தையின் பெயர் (Name)</th>
+                    <th>வருகை (Status)</th>
+                </tr>
+                {% for child in children %}
+                <tr>
+                    <td>{{ child[1] }}</td>
+                    <td>
+                        <input type="hidden" name="child_id_{{ child[0] }}" value="{{ child[0] }}">
+                        <select name="status_{{ child[0] }}">
+                            <option value="Present">✅ வந்தார் (Present)</option>
+                            <option value="Absent">❌ வரவில்லை (Absent)</option>
+                        </select>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <button type="submit">சமர்ப்பி (Submit)</button>
+        </form>
+
+        <br>
+        <a href="/dashboard">⬅ முகப்புப் பக்கம் (Back to Dashboard)</a>
+    </div>
+</body>
+</html>
